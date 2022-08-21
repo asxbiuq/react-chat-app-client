@@ -1,10 +1,14 @@
 import React from 'react'
-
+import { observer } from 'mobx-react-lite'
 import onlineIcon from '../../icons/onlineIcon.png'
 
 import './TextContainer.css'
 
-const TextContainer = ({ users }) => (
+interface Props {
+  users: User[]
+}
+
+const TextContainer = observer(({ users }: Props) => (
   <div className="textContainer">
     <div>
       <h1>
@@ -42,6 +46,6 @@ const TextContainer = ({ users }) => (
       </div>
     ) : null}
   </div>
-)
+))
 
 export default TextContainer

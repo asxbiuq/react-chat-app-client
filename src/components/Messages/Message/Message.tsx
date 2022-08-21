@@ -1,10 +1,13 @@
 import React from 'react'
-
+import { observer } from 'mobx-react-lite'
 import './Message.css'
-
 import ReactEmoji from 'react-emoji'
 
-const Message = ({ message: { text, user }, name }) => {
+interface Props {
+  message: Message
+  name: string
+}
+const Message = observer(({ message: { text, user }, name }: Props) => {
   let isSentByCurrentUser = false
 
   const trimmedName = name.trim().toLowerCase()
@@ -28,6 +31,6 @@ const Message = ({ message: { text, user }, name }) => {
       <p className="sentText pl-10 ">{user}</p>
     </div>
   )
-}
+})
 
 export default Message

@@ -1,9 +1,7 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { observer } from 'mobx-react-lite'
-import Store from '@/store/Store'
+import Store from '@/store/store'
 
-export default observer(() => {
+export default () => {
   return (
     <div className="form-control w-full max-w-xs gap-2">
       <label className="label justify-center">
@@ -26,17 +24,11 @@ export default observer(() => {
         />
       </div>
 
-      <Link
-        className="flex justify-center"
-        onClick={(e) =>
-          !Store.name || !Store.room ? e.preventDefault() : null
-        }
-        to={`/chat?name=${Store.name}&room=${Store.room}`}
-      >
+      <Link className="flex justify-center" to={`/chat`}>
         <button className="btn btn-active btn-info btn-wide" type="submit">
           确认
         </button>
       </Link>
     </div>
   )
-})
+}

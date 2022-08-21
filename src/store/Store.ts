@@ -1,15 +1,11 @@
 import { makeAutoObservable } from 'mobx'
-import io from 'socket.io-client'
-
-const ENDPOINT = 'https://project-chat-application.herokuapp.com/'
 
 class Store {
   name = ''
   room = ''
-  users = ''
+  users: User[] = []
   message = ''
-  messages = ['']
-  socket = io(ENDPOINT)
+  messages: Message[] = []
 
   constructor() {
     makeAutoObservable(this)
@@ -20,7 +16,6 @@ class Store {
   }
   setName(name: string) {
     this.name = name
-    console.log(`name is change, now is ${name}`)
   }
 
   getRoom() {
@@ -29,14 +24,13 @@ class Store {
 
   setRoom(room: string) {
     this.room = room
-    console.log(`name is change, now is ${room}`)
   }
 
   getUsers() {
     return this.users
   }
 
-  setUsers(users: string) {
+  setUsers(users: User[]) {
     this.users = users
   }
 
@@ -46,10 +40,9 @@ class Store {
 
   setMessage(message: string) {
     this.message = message
-    console.log(`Message is change, now is ${this.message}`)
   }
 
-  addMessages(message: string) {
+  addMessages(message: Message) {
     this.messages.push(message)
   }
   getMessages() {
@@ -58,18 +51,6 @@ class Store {
 
   setMessages(messages: []) {
     this.messages = messages
-  }
-
-  sendMessage(message: string) {
-    this.socket.emit('sendMessage', message)
-  }
-
-  socketEmit(event: string, cb: Function) {
-    this.socket.emit(event, cb)
-  }
-
-  socketOn(event: string, cb: any) {
-    this.socket.on(event, cb)
   }
 }
 

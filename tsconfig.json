@@ -25,7 +25,8 @@
     "src/**/*.vue",
     "./auto-imports.d.ts",
     "./env.d.ts",
-    "./env.development.d.ts"
+    "./env.development.d.ts",
+    "src/types/index.d.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

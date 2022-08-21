@@ -1,44 +1,38 @@
-import React, { useState, useEffect } from 'react'
-import io from 'socket.io-client'
+import React, { useCallback, useEffect } from 'react'
 import TextContainer from '../TextContainer/TextContainer'
 import Messages from '../Messages/Messages'
 import InfoBar from '../InfoBar/InfoBar'
-import Input from '../Input/Input'
-import Store from '@/store/Store'
+import Bottom from '../Input/Bottom'
+import Store from '@/store/store'
 import './Chat.css'
-import { observer } from 'mobx-react-lite'
+import socket from '@/api/socket'
 
-const ENDPOINT = 'https://project-chat-application.herokuapp.com/'
 
-const Chat = observer(() => {
-  const room = Store.getRoom()
-  const name = Store.getName()
-  const socket = io(ENDPOINT)
+const Chat = () => {
 
-  socket.emit('join', { name, room }, (error: unknown) => {
-    if (error) {
-      alert(error)
-    }
-  })
 
-  socket.on('message', (message: string) => {
-    Store.addMessages(message)
-  })
 
-  socket.on('roomData', ({ users }) => {
-    Store.setUsers(users)
-  })
+
+  useEffect(()=>{
+    socket.connect()
+    socket.emitJoin(Store.name, Store.room)
+  },[Store.name,Store.room])
+
+  useEffect(()=>{
+    socket.onMessage()
+    socket.onRoomData()
+  },[])
 
   return (
     <div className="outerContainer">
       <div className="container">
-        <InfoBar room={room} />
-        <Messages messages={Store.messages} name={name} />
-        <Input />
+        <InfoBar room={Store.room} />
+        <Messages messages={Store.messages} name={Store.name} />
+        <Bottom message={Store.message} />
       </div>
       <TextContainer users={Store.users} />
     </div>
   )
-})
+}
 
 export default Chat
