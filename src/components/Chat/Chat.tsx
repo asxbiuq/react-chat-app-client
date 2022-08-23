@@ -10,25 +10,20 @@ import socket from '@/api/socket'
 
 const Chat = () => {
 
-
-
-
   useEffect(()=>{
     socket.connect()
     socket.emitJoin(Store.name, Store.room)
-  },[Store.name,Store.room])
-
-  useEffect(()=>{
     socket.onMessage()
     socket.onRoomData()
-  },[])
+  },[Store.name,Store.room])
+
 
   return (
     <div className="outerContainer">
       <div className="container">
         <InfoBar room={Store.room} />
         <Messages messages={Store.messages} name={Store.name} />
-        <Bottom message={Store.message} />
+        <Bottom />
       </div>
       <TextContainer users={Store.users} />
     </div>

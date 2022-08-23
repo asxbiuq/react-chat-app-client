@@ -22,18 +22,19 @@ const GenericInput = observer(({ getValue,onKeyPress }:GenericInput) =>
   />
 )
 
-interface Props {
-  message: string
-}
+// interface Props {
+//   message: string
+// }
 
-const Bottom = ({ message }: Props) => {
+const Bottom = () => {
   const sendMessage = (event?: FormEvent | MouseEvent) => {
     if (event) {
       event.preventDefault()
     }
-
-    if (Store.getMessage()) {
+    const message = Store.getMessage()
+    if (message) {
       socket.emitJoin(Store.name,Store.room)
+      socket.emitSendMessage(message)
       Store.setMessage('')
     }
   }

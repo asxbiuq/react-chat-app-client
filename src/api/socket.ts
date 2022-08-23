@@ -21,8 +21,12 @@ class Socket {
         console.log(`ERROR:${error}`)
       }
 
-      console.log(`name: ${name},room: ${room}`)
+      console.log(`join : name: ${name},room: ${room}`)
     })
+  }
+
+  emitSendMessage(message:string){
+    this.socket.emit('sendMessage', message);
   }
 
   onMessage(){
