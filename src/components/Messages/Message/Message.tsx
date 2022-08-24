@@ -1,7 +1,7 @@
 import React from 'react'
 import { observer } from 'mobx-react-lite'
 import './Message.css'
-import ReactEmoji from 'react-emoji'
+import MessageAvatar from './MessageAvatar'
 
 interface Props {
   message: Message
@@ -17,20 +17,23 @@ const Message = observer(({ message: { text, user }, name }: Props) => {
   }
 
   return isSentByCurrentUser ? (
-    <div className="messageContainer justifyEnd">
-        <div className="messageBox backgroundBlue">
-          <p className="messageText colorWhite">{ReactEmoji.emojify(text)}</p>
+        <div className="messageContainer justifyEnd">
+            <div className="messageBox backgroundBlue">
+              <p className="messageText colorWhite">{text}</p>
+            </div>
+          <p className="sentText pr-10">{trimmedName}</p>
         </div>
-      <p className="sentText pr-10">{trimmedName}</p>
-    </div>
-  ) : (
-    <div className="messageContainer justifyStart">
-      <p className="sentText pl-10 ">{user}</p>
-      <div className="messageBox backgroundLight">
-        <p className="messageText colorDark">{ReactEmoji.emojify(text)}</p>
-      </div>
-    </div>
-  )
+      ) : (
+        <div className="messageContainer justifyStart">
+          {/* <p className="sentText pl-10 ">{user}</p> */}
+          <MessageAvatar name={user}/> 
+          <div className="messageBox backgroundLight">
+            <p className="messageText colorDark">{text}</p>
+          </div>
+        </div>
+      )
+
+
 })
 
 export default Message
