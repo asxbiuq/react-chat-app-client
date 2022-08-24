@@ -7,16 +7,13 @@ import Store from '@/store/store'
 import './Chat.css'
 import socket from '@/api/socket'
 
-
 const Chat = () => {
-
-  useEffect(()=>{
+  useEffect(() => {
     socket.connect()
     socket.emitJoin(Store.name, Store.room)
     socket.onMessage()
     socket.onRoomData()
-  },[Store.name,Store.room])
-
+  }, [Store.name, Store.room])
 
   return (
     <div className="outerContainer">

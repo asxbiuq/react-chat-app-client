@@ -4,7 +4,6 @@ import ScrollToBottom from 'react-scroll-to-bottom'
 import Message from './Message/Message'
 import './Messages.css'
 
-
 interface Props {
   messages: Message[]
   name: string

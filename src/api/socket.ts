@@ -1,7 +1,6 @@
 import Store from '@/store/store'
 import io from 'socket.io-client'
 
-
 class Socket {
   socket = io('ws://localhost:8080/', {})
 
@@ -25,25 +24,24 @@ class Socket {
     })
   }
 
-  emitSendMessage(message:string){
-    this.socket.emit('sendMessage', message);
+  emitSendMessage(message: string) {
+    this.socket.emit('sendMessage', message)
   }
 
-  onMessage(){
-    this.socket.on('message', message => {
-      Store.addMessages(message);
+  onMessage() {
+    this.socket.on('message', (message) => {
+      Store.addMessages(message)
       console.log(Store.getMessages())
-    });
+    })
   }
 
-  onRoomData(){
-    this.socket.on("roomData", ({ users }) => {
-      Store.setUsers(users);
+  onRoomData() {
+    this.socket.on('roomData', ({ users }) => {
+      Store.setUsers(users)
       console.log(Store.getUsers())
-    });
+    })
   }
 }
 const socket = new Socket()
 
 export default socket
-
