@@ -1,7 +1,3 @@
-import { AntDesignOutlined, UserOutlined } from '@ant-design/icons';
-import { Avatar, Image } from 'antd';
-import React from 'react';
-
 interface Props {
   name: string
 }
@@ -15,7 +11,7 @@ export default ({name}:Props) => (
     <div className='userAvatar'>
     <div className="avatar placeholder">
       <div className="bg-neutral-focus text-neutral-content rounded-full w-[3rem]">
-        <span className="text-2xl">K</span>
+        <span className="text-2xl">{name.slice(0,1)}</span>
       </div>
     </div>
     </div>

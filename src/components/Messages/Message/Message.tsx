@@ -1,6 +1,5 @@
 import React from 'react'
 import { observer } from 'mobx-react-lite'
-import './Message.css'
 import MessageAvatar from './MessageAvatar'
 
 interface Props {
@@ -17,18 +16,21 @@ const Message = observer(({ message: { text, user }, name }: Props) => {
   }
 
   return isSentByCurrentUser ? (
-        <div className="messageContainer justifyEnd">
-            <div className="messageBox backgroundBlue">
-              <p className="messageText colorWhite">{text}</p>
+        <div className="flex gap-2 items-start flex-row-reverse">
+          <MessageAvatar name={user}/> 
+          <div className="card w-[20rem] bg-base-100 shadow-2xl bg-green-400 relative top-[1.5rem]">
+            <div className="card-body p-5">
+              <p className='font-medium'>{text}</p>
             </div>
-          <p className="sentText pr-10">{trimmedName}</p>
+          </div>
         </div>
       ) : (
-        <div className="messageContainer justifyStart">
-          {/* <p className="sentText pl-10 ">{user}</p> */}
+        <div className="flex gap-2 items-start">
           <MessageAvatar name={user}/> 
-          <div className="messageBox backgroundLight">
-            <p className="messageText colorDark">{text}</p>
+          <div className="card w-[20rem] bg-base-100 shadow-2xl bg-blue-400 relative top-[1.5rem]">
+            <div className="card-body p-5">
+              <p className='font-medium'>{text}</p>
+            </div>
           </div>
         </div>
       )
