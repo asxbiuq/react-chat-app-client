@@ -10,6 +10,7 @@
     "format": "prettier .  --write"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@headlessui/react": "^1.6.6",
@@ -29,6 +30,7 @@
     "socket.io-client": "^4.5.1"
   },
   "devDependencies": {
+    "@iconify/react": "^3.2.2",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.1",

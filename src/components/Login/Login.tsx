@@ -34,7 +34,7 @@ export default () => {
             >
               <Form.Item
                 label="用户名"
-                name="username"
+                name="name"
                 rules={[{ required: true, message: '请输入您的用户名！' }]}
               >
                 <Input />

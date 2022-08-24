@@ -1,9 +1,11 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@ant-design/icons': ^4.7.0
   '@emotion/react': ^11.10.0
   '@emotion/styled': ^11.10.0
   '@headlessui/react': ^1.6.6
+  '@iconify/react': ^3.2.2
   '@mui/material': ^5.10.2
   '@types/react': ^18.0.17
   '@types/react-dom': ^18.0.6
@@ -33,6 +35,7 @@ specifiers:
   vite: ^3.0.7
 
 dependencies:
+  '@ant-design/icons': registry.npmmirror.com/@ant-design/icons/4.7.0_biqbaboplfbrettd7655fr4n2y
   '@emotion/react': registry.npmmirror.com/@emotion/react/11.10.0_ug65io7jkbhmo4fihdmbrh3ina
   '@emotion/styled': registry.npmmirror.com/@emotion/styled/11.10.0_lzabd6uj4wst47copsenr4b56q
   '@headlessui/react': registry.npmmirror.com/@headlessui/react/1.6.6_biqbaboplfbrettd7655fr4n2y
@@ -52,6 +55,7 @@ dependencies:
   socket.io-client: registry.npmmirror.com/socket.io-client/4.5.1
 
 devDependencies:
+  '@iconify/react': registry.npmmirror.com/@iconify/react/3.2.2_react@18.2.0
   '@types/react': registry.npmmirror.com/@types/react/18.0.17
   '@types/react-dom': registry.npmmirror.com/@types/react-dom/18.0.6
   '@vitejs/plugin-react': registry.npmmirror.com/@vitejs/plugin-react/2.0.1_vite@3.0.7
@@ -717,6 +721,17 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz}
     name: '@humanwhocodes/object-schema'
     version: 1.2.1
+    dev: true
+
+  registry.npmmirror.com/@iconify/react/3.2.2_react@18.2.0:
+    resolution: {integrity: sha512-z3+Jno3VcJzgNHsN5mEvYMsgCkOZkydqdIwOxjXh45+i2Vs9RGH68Y52vt39izwFSfuYUXhaW+1u7m7+IhCn/g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@iconify/react/-/react-3.2.2.tgz}
+    id: registry.npmmirror.com/@iconify/react/3.2.2
+    name: '@iconify/react'
+    version: 3.2.2
+    peerDependencies:
+      react: '>=16'
+    dependencies:
+      react: registry.npmmirror.com/react/18.2.0
     dev: true
 
   registry.npmmirror.com/@jridgewell/gen-mapping/0.1.1:
@@ -4207,7 +4222,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: registry.npmmirror.com/loose-envify/1.4.0
-    dev: false
 
   registry.npmmirror.com/read-cache/1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/read-cache/-/read-cache-1.0.0.tgz}

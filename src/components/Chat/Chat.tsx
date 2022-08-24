@@ -16,14 +16,15 @@ const Chat = () => {
   }, [Store.name, Store.room])
 
   return (
-    <div className="outerContainer">
-      <div className="container">
+    // <div className="outerContainer">
+      // <div className="container">
+      <div className='flex flex-col justify-between h-screen'>
         <InfoBar room={Store.room} />
         <Messages messages={Store.messages} name={Store.name} />
         <Bottom />
-      </div>
-      <TextContainer users={Store.users} />
-    </div>
+      </div> 
+      // <TextContainer users={Store.users} /> 
+    // </div>
   )
 }
 
