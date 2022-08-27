@@ -9,6 +9,10 @@ interface Props {
   name: string
 }
 
+const isSameDay = () => {
+  
+}
+
 const Messages = observer(({ messages, name }: Props) => (
   <ScrollToBottom className="messages flex h-full p-4">
     {messages.map((message, i) => (

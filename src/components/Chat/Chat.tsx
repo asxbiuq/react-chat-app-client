@@ -16,15 +16,17 @@ const Chat = () => {
   }, [Store.name, Store.room])
 
   return (
-    // <div className="outerContainer">
-      // <div className="container">
-      <div className='flex flex-col justify-between h-screen'>
-        <InfoBar room={Store.room} />
-        <Messages messages={Store.messages} name={Store.name} />
-        <Bottom />
+      <div className='flex flex-col justify-between'>
+        <div className='fixed w-full top-0'>
+          <InfoBar room={Store.room}/>
+        </div>
+        <div className='h-[85vh] overflow-hidden relative top-[10vh]'>
+          <Messages messages={Store.messages} name={Store.name} />
+        </div>
+        <div className='fixed w-full bottom-0'>
+          <Bottom />
+        </div>
       </div> 
-      // <TextContainer users={Store.users} /> 
-    // </div>
   )
 }
 

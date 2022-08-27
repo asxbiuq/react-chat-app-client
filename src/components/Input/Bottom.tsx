@@ -22,14 +22,21 @@ const GenericInput = observer(({ onKeyPress }: GenericInput) => (
   //   }}
   //   onKeyPress={onKeyPress}
   // />
-  <TextArea
-    placeholder="请输入消息"
-    onKeyPress={onKeyPress}
+  // <TextArea
+  //   placeholder="请输入消息"
+  //   onKeyPress={onKeyPress}
+  //   value={Store.getMessage()}
+  //   onChange={(event) => {
+  //     Store.setMessage(event.target.value)
+  //   }}
+  //   autoSize={{ minRows: 1, maxRows: 6 }}
+  // />
+  <textarea 
+    className="textarea leading-4 w-full bg-slate-300" 
+    placeholder="请输入消息" 
     value={Store.getMessage()}
-    onChange={(event) => {
-      Store.setMessage(event.target.value)
-    }}
-    autoSize={{ minRows: 1, maxRows: 6 }}
+    onKeyPress={onKeyPress}
+    onChange={(e)=>Store.setMessage(e.target.value)}
   />
 
 ))
@@ -40,7 +47,7 @@ const GenericInput = observer(({ onKeyPress }: GenericInput) => (
 
 const Bottom = () => {
 
-  const sendMessage = (event: KeyboardEvent) => {
+  const sendMessage = (event: any) => {
     const message = Store.getMessage()
     if (message) {
       socket.emitJoin(Store.name, Store.room)
@@ -55,16 +62,22 @@ const Bottom = () => {
   }
 
   return (
-    <form className="form flex justify-between">
-      <div className='flex-auto'>
+    <form className="form flex justify-between relative items-center">
+      <div className='flex-auto flex'>
         <GenericInput
           onKeyPress={handleKeyPress}
         />
       </div>
+      {/* <textarea 
+        className="textarea textarea-info flex-auto leading-4" 
+        placeholder="请输入消息" 
+        onKeyPress={handleKeyPress}
+        onChange={(e)=>Store.setMessage(e.target.value)}
+      /> */}
       <div className='flex-none'>
-        <Button type="primary" onClick={(e) => sendMessage(e)}>
+        <button className="btn" type='button' onClick={(e) => sendMessage(e)}>
           <Icon icon="bi:send-fill" />
-        </Button>
+        </button>
       </div>
     </form>
   )

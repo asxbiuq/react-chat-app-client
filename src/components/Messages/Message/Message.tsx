@@ -27,6 +27,7 @@ const Message = observer(({ message: { text, user }, name }: Props) => {
       ) : (
         <div className="flex gap-2 items-start">
           <MessageAvatar name={user}/> 
+          
           <div className="card w-[20rem] bg-base-100 shadow-2xl bg-blue-400 relative top-[1.5rem]">
             <div className="card-body p-5">
               <p className='font-medium'>{text}</p>
