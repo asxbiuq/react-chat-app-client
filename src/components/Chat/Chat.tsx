@@ -20,7 +20,7 @@ const Chat = () => {
         <div className='fixed w-full top-0'>
           <InfoBar room={Store.room}/>
         </div>
-        <div className='h-[85vh] overflow-hidden relative top-[10vh]'>
+        <div className='h-[83vh] overflow-auto relative top-[10vh]'>
           <Messages messages={Store.messages} name={Store.name} />
         </div>
         <div className='fixed w-full bottom-0'>

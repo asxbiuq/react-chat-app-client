@@ -14,13 +14,15 @@ const isSameDay = () => {
 }
 
 const Messages = observer(({ messages, name }: Props) => (
-  <ScrollToBottom className="messages flex h-full p-4">
-    {messages.map((message, i) => (
-      <div key={i} className="mb-[2rem]">
-        <Message message={message} name={name} />
-      </div>
-    ))}
-  </ScrollToBottom>
+  // <ScrollToBottom className="messages flex h-full p-4">
+    <>
+      {messages.map((message, i) => (
+        <div key={i} className="mb-[2rem]">
+          <Message message={message} name={name} />
+        </div>
+      ))}
+    </>
+  // </ScrollToBottom>
 ))
 
 export default Messages
